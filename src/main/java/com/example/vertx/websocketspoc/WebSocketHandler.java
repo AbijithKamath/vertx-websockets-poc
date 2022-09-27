@@ -34,7 +34,7 @@ public class WebSocketHandler implements Handler<ServerWebSocket> {
       log.info("received message : {} from {} ",message,ws.textHandlerID());
       connectedClients.get(1).writeTextMessage("received message is :  "+ message);
 
-      //sockjs implementtion in vertx3
+      //sockjs implementtion in vertx4 .
 
 
     });
