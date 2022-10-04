@@ -25,15 +25,15 @@ public class WebSocketHandler implements Handler<ServerWebSocket> {
   public void handle(final ServerWebSocket ws) {
     log.info("opening websocket connection {}, {} ",ws.path(),ws.textHandlerID());
     ws.accept(); //ssl handshake
-    register(ws);
+   // register(ws);
     ws.writeTextMessage("connected");
     ws.exceptionHandler(error->log.error("failed {}",error));
 
     ws.frameHandler(received->{
       String message = received.textData();
       log.info("received message : {} from {} ",message,ws.textHandlerID());
-      connectedClients.get(1).writeTextMessage("received message is :  "+ message);
-
+     // connectedClients.get(1).writeTextMessage("received message is :  "+ message);
+      ws.writeTextMessage("received message is :  "+ message);
       //sockjs implementtion in vertx5 .
 
 
